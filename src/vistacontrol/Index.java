@@ -66,13 +66,27 @@ public class Index {
         System.out.println("ID\tApellidos y Nombre\t\tDNI\t\tCodigo\t\tEstado");
         for (Estudiante estudiante : estudiantes) {
             System.out.println( estudiante.getIdestudiante() + "\t" + 
-                                estudiante.getNombreCompleto() + "\t" + 
+                                darFormato(estudiante.getNombreCompleto()) + "\t" + 
                                 estudiante.getDni() + "\t" +
                                 estudiante.getCodigo() + "\t" +
                                 estudiante.getEstado());            
         }
         
     }
+    
+    public static String darFormato(String cadena){
+        if (cadena.length()>=28) {
+            cadena = cadena.substring(0,29) + "..";
+        }else if (cadena.length()>=23) {
+            // 
+        }else if (cadena.length()>=17) {
+            cadena = cadena + "\t";
+        }else if (cadena.length()>=10) {
+            cadena = cadena + "\t\t";
+        }
+        return cadena;
+    }
+    
     public static void salir(){
         System.out.println("Gracias por su visita");
     }
